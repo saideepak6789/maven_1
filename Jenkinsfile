@@ -5,7 +5,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Check out the source code from your version control system
-                git credentialsId: 'your-git-credentials', url: 'https://github.com/your-username/your-project.git'
+                git credentialsId: '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', url: 'https://github.com/dishoneprabu/maven.git'
             }
         }
 
