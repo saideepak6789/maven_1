@@ -1,6 +1,9 @@
 pipeline {
-    agent any
-
+    agent {
+    node {
+        label 'Prod-2'
+    }
+}
     stages {
         stage('Checkout') {
             steps {
