@@ -18,4 +18,4 @@ sphinx-quickstart \
 
 make html
 
-cp ./_build/html/index.html ./index.html
+cp ./build/html ./
