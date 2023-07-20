@@ -8,6 +8,6 @@ version_number=$3
 
 
 # Run sphinx-quickstart with provided project details
-sphinx-quickstart -n --project=PROJECT=$project_name --author=$author_name
+sphinx-quickstart --project=PROJECT=$project_name --author=$author_name
 
 cp ./_build/html/index.html ./index.html
