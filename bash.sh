@@ -2,10 +2,10 @@
 
 pip install sphinx
 
-# Prompt the user for project details
-read -p "Enter the project name: " project_name
-read -p "Enter the author name: " author_name
-read -p "Enter the version number: " version_number
+project_name=$1
+author_name=$2
+version_number=$3
+
 
 # Run sphinx-quickstart with provided project details
 sphinx-quickstart \
