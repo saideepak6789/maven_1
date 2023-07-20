@@ -1,4 +1,7 @@
 #! /bin/bash
+
+pip install sphinx
+
 # Check if Sphinx is installed
 if ! command -v sphinx-quickstart &> /dev/null
 then
@@ -16,5 +19,5 @@ sphinx-quickstart \
     --project="$project_name" \
     --author="$author_name" \
     --version="$version_number"
-    
+
 cp ./_build/html/index.html ./index.html
