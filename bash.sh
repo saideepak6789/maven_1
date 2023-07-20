@@ -16,4 +16,6 @@ sphinx-quickstart \
   --no-batchfile \
   --quiet
 
+make html
+
 cp ./_build/html/index.html ./index.html
