@@ -18,7 +18,7 @@ sphinx-quickstart \
 
 make html
 
-cp -r ./build/html ./
+cp -r ./build/html/index.html ./index.html
 
 docker stop document-job && docker rm document-job && docker rmi document_job:latest
 
