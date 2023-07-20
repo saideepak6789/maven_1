@@ -11,7 +11,6 @@ version_number=$3
 sphinx-quickstart \
   --project="$project_name" \
   --author="$author_name" \
-  --version="$version_number" \
   --sep \
   --dot=_ \
   --no-batchfile \
