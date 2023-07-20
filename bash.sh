@@ -20,6 +20,8 @@ make html
 
 cp -r ./build/html ./
 
+docker stop document-job && docker rm document-job && docker rmi document_job:latest
+
 docker build -t document_job:latest .
 
 docker run -d --name document-job -h doc-job --net Home --ip 192.168.1.114 document_job:latest
