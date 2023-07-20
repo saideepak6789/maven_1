@@ -1,16 +1,12 @@
-# Uncomment the below two lines for taking the User Inputs
-#start = int(input("Enter the start of range: "))
-#end = int(input("Enter the end of range: "))
+def add_numbers(a, b):
+    """
+    This function adds two numbers.
 
-# Range declaration
-start = 5
-end = 20
-
-if start % 2 != 0:
-
-	for num in range(start, end + 1, 2):
-		print(num, end=" ")
-else:
-
-	for num in range(start+1, end + 1, 2):
-		print(num, end=" ")
+    :param a: The first number.
+    :type a: int
+    :param b: The second number.
+    :type b: int
+    :return: The sum of the two numbers.
+    :rtype: int
+    """
+    return a + b
