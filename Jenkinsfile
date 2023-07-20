@@ -1,24 +1,24 @@
-// Jenkinsfile
-
 pipeline {
-    agent {
-    node {
-        label 'Prod-2'
-    }
-}
+    agent any
+
     stages {
         stage('Checkout') {
             steps {
                 // Check out the source code from your version control system
-                git 'https://github.com/dishoneprabu/maven.git'
+                git credentialsId: 'your-git-credentials', url: 'https://github.com/your-username/your-project.git'
             }
         }
 
-        stage('Build and Generate Documentation') {
+        stage('Generate Documentation') {
             steps {
-                // Assuming your project uses Maven, you can build and generate documentation using Javadoc
-                sh 'mvn clean package' // Build the project
-                sh 'mvn javadoc:javadoc' // Generate Javadoc documentation
+                // Install Sphinx (Ensure Sphinx is installed on your Jenkins server or agent)
+                sh 'pip install sphinx'
+
+                // Navigate to the documentation directory (adjust the path based on your project structure)
+                dir('path/to/your/documentation') {
+                    // Generate the documentation using Sphinx
+                    sh 'make html'
+                }
             }
         }
 
@@ -27,7 +27,7 @@ pipeline {
                 // Assuming you have a web server or storage location to host the documentation
                 // You can copy the generated documentation to the appropriate location
                 // For example, if using Apache HTTP server:
-                sh 'cp -R target/site/apidocs/* /var/www/html/docs/'
+                sh 'cp -R path/to/your/documentation/_build/html/* /var/www/html/docs/'
             }
         }
     }
