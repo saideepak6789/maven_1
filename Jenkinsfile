@@ -1,7 +1,7 @@
 pipeline {
     agent {
     node {
-        label 'Prod-1'
+        label 'Prod-2'
     }
 }
   stages {
@@ -12,7 +12,7 @@ pipeline {
     }
     stage('Running the Build') {
       steps {
-        sh 'docker run -d --name java-web-app -h java-web-app --net Home --ip 192.168.1.6 -p 8080:8080 dishoneprabu/java-web-app:latest'
+        sh 'docker run -d --name java-web-app -h java-web-app --net Home --ip 192.168.1.66 -p 8080:8080 dishoneprabu/java-web-app:latest'
       }
     }
   }
