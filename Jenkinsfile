@@ -7,6 +7,7 @@ pipeline {
     stages {
         stage('Install if docker is not avaliable') {
             steps {
+                sh 'chmod +x ./docker.sh'
                 sh './docker.sh'
             }
         }
@@ -19,6 +20,7 @@ pipeline {
 
         stage('Checking the Old Container') {
             steps {
+                sh 'chmod +x ./old-container-check.sh'
                 sh './old-container-check.sh'
             }
         }
