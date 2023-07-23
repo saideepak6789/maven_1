@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 check_docker_installed() {
     if [ -x "$(command -v docker)" ]; then
         return 0
@@ -8,7 +7,6 @@ check_docker_installed() {
         return 1
     fi
 }
-
 
 install_docker() {
     echo "Docker is not installed. Installing Docker..."
@@ -18,7 +16,6 @@ install_docker() {
     sudo systemctl start docker
     echo "Docker has been installed successfully."
 }
-
 
 if check_docker_installed; then
     echo "Docker is already installed."
