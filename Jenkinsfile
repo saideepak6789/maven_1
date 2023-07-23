@@ -27,7 +27,7 @@ pipeline {
      
         stage('Launching the latest image') {
             steps {
-                sh 'docker run -d --name java-web-app -h java-web-app -p 8080:8080 dishoneprabu/java-web-app:latest'
+                sh 'docker run -d --name java-web-app -h java-web-app -p 8080:8080 --restart unless-stopped dishoneprabu/java-web-app:latest'
             }
         }
     }
