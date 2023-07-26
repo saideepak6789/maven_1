@@ -8,8 +8,8 @@ pipeline {
 
         stage('Install if docker is not avaliable') {
             steps {
-                sh 'chmod +x ./bash/docker.sh'
-                sh './bash/docker.sh'
+                sh 'chmod +x ./bash/ecs.sh'
+                sh './bash/ecs.sh'
             }
         }
 
