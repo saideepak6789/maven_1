@@ -6,6 +6,13 @@ pipeline {
 }
     stages {
 
+        stage('Install if docker is not avaliable') {
+            steps {
+                sh 'chmod +x ./bash/docker.sh'
+                sh './bash/docker.sh'
+            }
+        }
+
         stage('Build Java-Web-Application') {
             steps {
                 sh 'docker build -t dishoneprabu/java-web-app:latest .'
