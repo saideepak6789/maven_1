@@ -37,7 +37,7 @@ stages:
       displayName: 'Step 1: Push Docker Image'
       inputs:
         command: 'push'
-        containerRegistry: 'azure demo' # Replace with the name of your Azure Container Registry service connection
+        containerRegistry: 'testacrsaidpk' # Replace with the name of your Azure Container Registry service connection
         repository: '$(dockerRegistry)/$(imageName):$(Build.BuildId)'
         tags: |
           latest
