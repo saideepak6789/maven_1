@@ -8,7 +8,7 @@ pool:
 
 variables:
   imageName: 'testimage'
-  dockerRegistry: 'containerregistrysaidpk.azurecr.io' # Replace with your ACR URL
+  dockerRegistry: 'testacrsaidpk.azurecr.io' # Replace with your ACR URL
   dockerfilePath: './dockerfile' # Update this path if your Dockerfile is in a different location
 
 stages:
