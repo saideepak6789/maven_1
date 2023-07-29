@@ -1,29 +1,43 @@
-# Docker
-# Build a Docker image
-# https://docs.microsoft.com/azure/devops/pipelines/languages/docker
-
 trigger:
-- main
+  branches:
+    include:
+      - main
 
-resources:
-- repo: self
+pool:
+  vmImage: 'ubuntu-latest'
 
 variables:
-  tag: '$(Build.BuildId)'
+  imageName: 'testimage'
+  dockerRegistry: 'containerregistrysaidpk.azurecr.io' # Replace with your ACR URL
+  dockerfilePath: './dockerfile' # Update this path if your Dockerfile is in a different location
 
 stages:
 - stage: Build
-  displayName: Build image
+  displayName: 'Build Docker Image'
   jobs:
-  - job: Build
-    displayName: Build
-    pool:
-      vmImage: ubuntu-latest
+  - job: BuildJob
+    displayName: 'Build Docker Image Job'
+    steps:
+    - script: echo Building Docker image
+      displayName: 'Step 1: Build Docker Image'
+      
+    - task: Docker@2
+      displayName: 'Step 2: Build Docker Image'
+      inputs:
+        command: 'build'
+        arguments: '-t $(dockerRegistry)/$(imageName):$(Build.BuildId) -f $(dockerfilePath) .'
+      
+- stage: Push
+  displayName: 'Push Docker Image'
+  jobs:
+  - job: PushJob
+    displayName: 'Push Docker Image Job'
     steps:
     - task: Docker@2
-      displayName: Build an image
+      displayName: 'Step 1: Push Docker Image'
       inputs:
-        command: build
-        dockerfile: '$(Build.SourcesDirectory)/dockerfile'
+        command: 'push'
+        containerRegistry: 'azure demo' # Replace with the name of your Azure Container Registry service connection
+        repository: '$(dockerRegistry)/$(imageName):$(Build.BuildId)'
         tags: |
-          $(tag)
+          latest
